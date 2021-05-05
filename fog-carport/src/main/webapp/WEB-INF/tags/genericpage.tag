@@ -18,6 +18,8 @@
     <meta name="theme-color" content="#7952b3">
     <style>
         header {
+            height: 150px;
+            background-size: 100% auto;
             background-position: center;
             background-image: url("${pageContext.request.contextPath}/Images/fogLogo.png");
             background-repeat: no-repeat;
@@ -31,25 +33,25 @@
     -->
 <header class="d-flex flex-column flex-md-row align-items-center p-3 pb-0 px-md-4 mb-4 bg-white border-bottom shadow-sm">
     <div class="h5 my-0 me-md-auto fw-normal">
-        <p>Demo Project for DAT 2. semester</p>
         <p style="font-size: larger">
             <jsp:invoke fragment="header"/>
         </p>
     </div>
     <nav class="my-2 my-md-0 me-md-3">
         <c:if test="${addHomeLink == null }">
-            <a class="p-2 text-dark" href="<%=request.getContextPath()%>">Home</a>
+            <a class="p-2 text-light" href="<%=request.getContextPath()%>">Home</a>
         </c:if>
-        <a class="p-2 text-dark" href="#">Orders</a>
-        <a class="p-2 text-dark" href="#">Profile</a>
-        <a class="p-2 text-dark" href="#">About</a>
+        <a class="p-2 text-light" href="#">Orders</a>
+        <a class="p-2 text-light" href="#">Profile</a>
+        <a class="p-2 text-light" href="#">About</a>
+        <a class="p-2 text-light"><c:if test="${sessionScope.user != null }">
+            ${sessionScope.user.email}
+        </c:if></a>
     </nav>
 
     <div>
 
-        <c:if test="${sessionScope.user != null }">
-            ${sessionScope.user.email}
-        </c:if>
+
 
         <c:set var="thisPage" value="${pageContext.request.servletPath}"/>
         <c:set var="isNotLoginPage" value="${!fn:endsWith(thisPage,'loginpage.jsp')}"/>

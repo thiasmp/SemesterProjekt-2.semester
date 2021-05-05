@@ -5,7 +5,6 @@
 <t:genericpage>
 
     <jsp:attribute name="header">
-         Home
     </jsp:attribute>
 
     <jsp:attribute name="footer">
@@ -15,6 +14,8 @@
     <jsp:body>
 
         <div>
+            <h1>Home</h1>
+            <br/>
             <h2>Our Cool Site</h2>
 
             <div style="margin-top: 3em;margin-bottom: 3em;">

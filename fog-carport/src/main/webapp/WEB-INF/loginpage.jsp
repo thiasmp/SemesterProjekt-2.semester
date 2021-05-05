@@ -4,13 +4,13 @@
 
 <t:genericpage>
     <jsp:attribute name="header">
-         Login page
     </jsp:attribute>
 
     <jsp:attribute name="footer">
     </jsp:attribute>
 
     <jsp:body>
+        <h1>Login page</h1>
         <div style="margin-top: 5em;" class="container">
             <form name="login" action="${pageContext.request.contextPath}/fc/logincommand"  method="POST">
                 <div class="row mb-3">
