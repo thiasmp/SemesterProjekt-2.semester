@@ -16,6 +16,13 @@
           integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/styles.css">
     <meta name="theme-color" content="#7952b3">
+    <style>
+        header {
+            background-position: center;
+            background-image: url("${pageContext.request.contextPath}/Images/fogLogo.png");
+            background-repeat: no-repeat;
+        }
+    </style>
 </head>
 <body>
     <!--
