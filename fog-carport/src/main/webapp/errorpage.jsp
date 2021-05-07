@@ -4,12 +4,13 @@
 
 <t:genericpage>
     <jsp:attribute name="header">
-         <h3 style="color:darkred">Oops!</h3>
+
     </jsp:attribute>
 
     <jsp:attribute name="footer">
     </jsp:attribute>
     <jsp:body>
+        <h3 style="color:darkred">Oops!</h3>
         <div>
 
             <h2><span class="badge rounded-pill  bg-danger">${pageContext.errorData.statusCode}</span></h2>

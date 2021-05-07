@@ -9,13 +9,13 @@
     </jsp:attribute>
 
     <jsp:body>
-        <h1>Hello ${sessionScope.email} </h1>
-        You are now logged in as a Customer of our wonderful site.
-        Role: ${sessionScope.role}
-
+        <h1>Vi har modtaget din forespørgsel med disse mål:</h1>
         <br/>
+            <h2>Længde: ${requestScope.længde} cm</h2>
         <br/>
-        <p>Klik her for at lav en <a href="${pageContext.request.contextPath}/fc/newrequest">ny forespørgsel</a>
+            <h2>Bredde: ${requestScope.bredde} cm</h2>
+            <br/>
+        <h2>Afvent vurdering</h2>
     </jsp:body>
 
 </t:genericpage>
