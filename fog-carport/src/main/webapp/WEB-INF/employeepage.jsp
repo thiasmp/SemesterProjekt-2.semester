@@ -12,5 +12,8 @@
         <h2>Hello ${sessionScope.email} </h2>
         You are now logged in as a EMPLOYEE of our wonderful site.
 
+        <br/>
+        <p>Klik her for at se alle <a href="${pageContext.request.contextPath}/fc/allrequestspage">forespørgseler</a>
+
     </jsp:body>
 </t:genericpage>
