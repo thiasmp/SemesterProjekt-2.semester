@@ -9,13 +9,13 @@
     </jsp:attribute>
 
     <jsp:body>
-        <h1>Vi har modtaget din forespørgsel med disse mål:</h1>
+        <h2>Vi har modtaget din forespørgsel med disse mål:</h2>
         <br/>
-            <h2>Længde: ${requestScope.længde} cm</h2>
+            <h3>Længde: ${requestScope.længde} cm</h3>
         <br/>
-            <h2>Bredde: ${requestScope.bredde} cm</h2>
+            <h3>Bredde: ${requestScope.bredde} cm</h3>
             <br/>
-        <h2>Afvent vurdering</h2>
+        <h3>Din forespørgsel vil blive behandlet hurtigst muligt - du vil blive kontaktet ved opdateringer</h3>
     </jsp:body>
 
 </t:genericpage>

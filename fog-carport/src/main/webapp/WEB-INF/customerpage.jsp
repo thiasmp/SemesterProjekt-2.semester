@@ -9,9 +9,8 @@
     </jsp:attribute>
 
     <jsp:body>
-        <h1>Hello ${sessionScope.email} </h1>
-        You are now logged in as a Customer of our wonderful site.
-        Role: ${sessionScope.role}
+        <h1>Velkommen ${sessionScope.email} </h1>
+        Du er nu logget ind på Fog's carport side
 
         <br/>
         <br/>

@@ -39,11 +39,11 @@
     </div>
     <nav class="my-2 my-md-0 me-md-3">
         <c:if test="${addHomeLink == null }">
-            <a class="p-2 text-light" href="<%=request.getContextPath()%>">Home</a>
+            <a class="p-2 text-light" href="<%=request.getContextPath()%>">Hjem</a>
         </c:if>
-        <a class="p-2 text-light" href="#">Orders</a>
-        <a class="p-2 text-light" href="#">Profile</a>
-        <a class="p-2 text-light" href="#">About</a>
+        <a class="p-2 text-light" href="#">Ordre</a>
+        <a class="p-2 text-light" href="#">Profil</a>
+        <a class="p-2 text-light" href="#">Omkring Os</a>
         <a class="p-2 text-light"><c:if test="${sessionScope.user != null }">
             ${sessionScope.user.email}
         </c:if></a>

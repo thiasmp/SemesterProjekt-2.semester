@@ -8,9 +8,8 @@
     <jsp:attribute name="footer">
     </jsp:attribute>
     <jsp:body>
-        <h1>Demo Page for Employee Roles</h1>
-        <h2>Hello ${sessionScope.email} </h2>
-        You are now logged in as a EMPLOYEE of our wonderful site.
+        <h1>Velkommen ${sessionScope.email} </h1>
+        Du er logget ind som administrator og kan redigere følgende
 
         <br/>
         <p>Klik her for at se alle <a href="${pageContext.request.contextPath}/fc/allrequestspage">forespørgseler</a>

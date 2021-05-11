@@ -14,12 +14,12 @@
     <jsp:body>
 
         <div>
-            <h1>Home</h1>
+            <h1>Velkommen til Fog's Carport</h1>
             <br/>
-            <h2>Our Cool Site</h2>
+            <h2>Vi sælger de bedste carporte i landet</h2>
 
             <div style="margin-top: 3em;margin-bottom: 3em;">
-                Main page for this 2. semester start project used at cphbusiness.dk
+                Log-in eller opret dig for at sende en forespørgsel på din skræddersyet carport
             </div>
 
             <c:if test="${sessionScope.role == 'employee' }">
