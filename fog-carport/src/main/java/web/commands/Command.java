@@ -31,7 +31,7 @@ public abstract class Command
         commands.put("newrequest", new CommandProtectedPage("nyforespørgselpage", "customer"));
         commands.put("requestpage", new GetRequestCommand("forespørgselafsendtpage", "customer"));
         commands.put("allrequestspage", new GetAllRequestCommand("allrequestspage", "employee"));
-        commands.put("styklistepage", new GetMaterialCommand("styklistepage", "employee"));
+        commands.put("styklistepage", new CalcCarportCommand("styklistepage", "employee"));
     }
 
     public static Command fromPath(

@@ -21,7 +21,7 @@
         </tr>
         </thead>
 
-        <c:forEach var="material" items="${sessionScope.materialList}">
+        <c:forEach var="material" items="${sessionScope.billOfMaterials}">
             <tr>
                 <td>${material.forespørgsel_id}</td>
                 <td>${material.materiale_id}</td>
