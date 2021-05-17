@@ -38,7 +38,7 @@ public class CarportMapper {
 
         try (Connection connection = database.connect()) {
             String sql = "SELECT forespørgsel.id, status, længde, bredde, pris, user_id, users.email " +
-                    "FROM forespørgsel INNER JOIN users ON forespørgsel.user_id = users.id;";
+                    "FROM forespørgsel INNER JOIN users ON forespørgsel.user_id = users.id WHERE status IS NULL;";
 
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ResultSet rs = ps.executeQuery();
@@ -148,6 +148,22 @@ public class CarportMapper {
                 ps.setString(3, description);
                 ps.setInt(4, amount);
                 ps.setInt(5, length);
+                ps.executeUpdate();
+            } catch (SQLException ex) {
+                throw new UserException(ex.getMessage());
+            }
+        } catch (SQLException ex) {
+            throw new UserException(ex.getMessage());
+        }
+    }
+
+    public void updateStatus(int id, String status) throws UserException {
+        try (Connection connection = database.connect()) {
+            String sql = "UPDATE forespørgsel SET status = ? WHERE id = ?";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setString(1, status);
+                ps.setInt(2, id);
                 ps.executeUpdate();
             } catch (SQLException ex) {
                 throw new UserException(ex.getMessage());

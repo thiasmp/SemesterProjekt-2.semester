@@ -32,6 +32,7 @@ public abstract class Command
         commands.put("requestpage", new GetRequestCommand("forespørgselafsendtpage", "customer"));
         commands.put("allrequestspage", new GetAllRequestCommand("allrequestspage", "employee"));
         commands.put("styklistepage", new CalcCarportCommand("styklistepage", "employee"));
+        commands.put("statuspage", new StatusCommand("allrequestspage", "employee"));
     }
 
     public static Command fromPath(

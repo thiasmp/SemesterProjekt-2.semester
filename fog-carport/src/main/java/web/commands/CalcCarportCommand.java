@@ -25,6 +25,7 @@ public class CalcCarportCommand extends CommandProtectedPage {
         BillOfMaterials billOfMaterials = new BillOfMaterials();
 
         int id = Integer.parseInt(request.getParameter("forespørgsel"));
+        session.setAttribute("id", id);
         int length = carportFacade.getLengthFromDB(id);
         int width = carportFacade.getWidthFromDB(id);
 
@@ -69,13 +70,13 @@ public class CalcCarportCommand extends CommandProtectedPage {
         billOfMaterials.addItem(uniLefts);
         billOfMaterials.addItem(plastmoBolts);
 
-        for (CarportItem c: billOfMaterials.getMaterialList()) {
-            carportFacade.writeToOrderline(id,c.getId(), c.getDescription(), c.getQuantity(), c.getLength());
-        }
+//        for (CarportItem c: billOfMaterials.getMaterialList()) {
+//            carportFacade.writeToOrderline(id,c.getId(), c.getDescription(), c.getQuantity(), c.getLength());
+//        }
 
-        List<Stykliste> materialList = carportFacade.getMaterialListFromRequestID(id);
+//        List<Stykliste> materialList = carportFacade.getMaterialListFromRequestID(getID);
 
-        session.setAttribute("billOfMaterials", materialList);
+        session.setAttribute("billOfMaterials", billOfMaterials.getMaterialList());
         session.setAttribute("længde", length);
         session.setAttribute("bredde", width);
 

@@ -40,4 +40,8 @@ public class CarportFacade
     public void writeToOrderline( int requestID, int materialID, String description, int amount, int length) throws UserException {
         carportMapper.writeToOrderline(requestID, materialID, description, amount, length);
     }
+
+    public void updateStatus(int id, String status) throws UserException {
+        carportMapper.updateStatus(id, status);
+    }
 }
