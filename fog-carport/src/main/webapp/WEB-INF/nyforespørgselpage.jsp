@@ -35,6 +35,10 @@
                 <c:if test="${not empty param.msg}">
                     <p style="font-size: large">${param.msg}</p>
                 </c:if>
+
+                <c:if test="${requestScope.booleanTest = true}">
+                    <p style="color:red">${requestScope.newError}</p>
+                </c:if>
                 <button class="btn btn-primary" type="submit">Send forespørgsel</button>
             </form>
 
