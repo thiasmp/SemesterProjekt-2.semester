@@ -1,6 +1,7 @@
 package business.entities;
 
 
+import business.exceptions.UserException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -8,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CalcCarportTest {
 
     @Test
-    void calcPosts() {
+    void calcPosts() throws UserException {
         CalcCarport calcCarport = new CalcCarport();
         int actual = calcCarport.calcPosts(780).getQuantity();
         int expected = 8;
@@ -17,7 +18,7 @@ class CalcCarportTest {
     }
 
     @Test
-    void calcBeams() {
+    void calcBeams() throws UserException {
         CalcCarport calcCarport = new CalcCarport();
         int actual = calcCarport.calcBeams(780).getQuantity();
         int expected = 2;
@@ -25,7 +26,7 @@ class CalcCarportTest {
     }
 
     @Test
-    void calcRafter() {
+    void calcRafter() throws UserException {
         CalcCarport calcCarport = new CalcCarport();
         int actual = calcCarport.calcRafter(780,600).getQuantity();
         int expected = 14;
@@ -33,7 +34,7 @@ class CalcCarportTest {
     }
 
     @Test
-    void calcPlastmo() {
+    void calcPlastmo() throws UserException {
         CalcCarport calcCarport = new CalcCarport();
         int actual = calcCarport.calcPlastmo(780, 600).getQuantity();
         int expected = 9;
@@ -41,7 +42,7 @@ class CalcCarportTest {
     }
 
     @Test
-    void calcPostbolts() {
+    void calcPostbolts() throws UserException {
         CalcCarport calcCarport = new CalcCarport();
         int actual = calcCarport.calcPostbolts(780).getQuantity();
         int expected = 16;
@@ -49,7 +50,7 @@ class CalcCarportTest {
     }
 
     @Test
-    void calcSquareDiscs() {
+    void calcSquareDiscs() throws UserException {
         CalcCarport calcCarport = new CalcCarport();
         int actual = calcCarport.calcSquareDiscs(780).getQuantity();
         int expected = 16;
@@ -57,7 +58,7 @@ class CalcCarportTest {
     }
 
     @Test
-    void calcUniRight() {
+    void calcUniRight() throws UserException {
         CalcCarport calcCarport = new CalcCarport();
         int actual = calcCarport.calcUniRight(780, 600).getQuantity();
         int expected = 14;
@@ -65,7 +66,7 @@ class CalcCarportTest {
     }
 
     @Test
-    void calcUniLeft() {
+    void calcUniLeft() throws UserException {
         CalcCarport calcCarport = new CalcCarport();
         int actual = calcCarport.calcUniLeft(780, 600).getQuantity();
         int expected = 14;
@@ -73,7 +74,7 @@ class CalcCarportTest {
     }
 
     @Test
-    void calcPlastmoBolt() {
+    void calcPlastmoBolt() throws UserException {
         CalcCarport calcCarport = new CalcCarport();
         int actual = calcCarport.calcPlastmoBolt(780, 600).getQuantity();
         int expected = 3;

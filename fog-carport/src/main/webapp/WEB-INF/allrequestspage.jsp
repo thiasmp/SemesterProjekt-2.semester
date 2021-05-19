@@ -12,10 +12,8 @@
             <thead>
             <tr>
                 <td>Forespørgsels ID</td>
-                <td>Status</td>
                 <td>Længde</td>
                 <td>Bredde</td>
-                <td>Pris</td>
                 <td>Kunde ID</td>
                 <td>Email</td>
             </tr>
@@ -24,10 +22,8 @@
             <c:forEach var="request" items="${sessionScope.requestList}">
                 <tr>
                     <td>${request.id}</td>
-                    <td>${request.status}</td>
                     <td>${request.length}</td>
                     <td>${request.width}</td>
-                    <td>${request.price}</td>
                     <td>${request.userID}</td>
                     <td>${request.email}</td>
                 </tr>

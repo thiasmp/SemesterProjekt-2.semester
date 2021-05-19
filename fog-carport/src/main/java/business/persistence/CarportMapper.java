@@ -157,13 +157,14 @@ public class CarportMapper {
         }
     }
 
-    public void updateStatus(int id, String status) throws UserException {
+    public void updateStatus(int id, String status, double price) throws UserException {
         try (Connection connection = database.connect()) {
-            String sql = "UPDATE forespørgsel SET status = ? WHERE id = ?";
+            String sql = "UPDATE forespørgsel SET status = ?, pris = ? WHERE id = ?;";
 
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ps.setString(1, status);
-                ps.setInt(2, id);
+                ps.setDouble(2, price);
+                ps.setInt(3, id);
                 ps.executeUpdate();
             } catch (SQLException ex) {
                 throw new UserException(ex.getMessage());
@@ -171,6 +172,27 @@ public class CarportMapper {
         } catch (SQLException ex) {
             throw new UserException(ex.getMessage());
         }
+    }
+
+    public double getPriceFromDB(int id) throws UserException {
+        try (Connection connection = database.connect()) {
+            String sql = "SELECT priceperunit FROM materiale WHERE id = ?";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setInt(1, id);
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    int price = rs.getInt("priceperunit");
+                    return price;
+                }
+
+            } catch (SQLException ex) {
+                throw new UserException(ex.getMessage());
+            }
+        } catch (SQLException | UserException ex) {
+            throw new UserException(ex.getMessage());
+        }
+        return 0;
     }
 }
 

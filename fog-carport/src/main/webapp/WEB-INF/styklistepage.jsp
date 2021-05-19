@@ -30,7 +30,7 @@
 <%--                <td>${material.enhed}</td>--%>
 <%--            </tr>--%>
 <%--        </c:forEach>--%>
-            <c:forEach var="material" items="${sessionScope.billOfMaterials}">
+            <c:forEach var="material"  items="${sessionScope.billOfMaterials}">
                 <tr>
                     <td>${material.id}</td>
                     <td>${material.description}</td>

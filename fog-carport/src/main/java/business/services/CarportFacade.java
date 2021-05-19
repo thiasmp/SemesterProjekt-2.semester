@@ -41,7 +41,11 @@ public class CarportFacade
         carportMapper.writeToOrderline(requestID, materialID, description, amount, length);
     }
 
-    public void updateStatus(int id, String status) throws UserException {
-        carportMapper.updateStatus(id, status);
+    public void updateStatus(int id, String status, double price) throws UserException {
+        carportMapper.updateStatus(id, status, price);
+    }
+
+    public double getPriceFromDB(int id) throws UserException {
+        return carportMapper.getPriceFromDB(id);
     }
 }

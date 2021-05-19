@@ -14,7 +14,14 @@ public class BillOfMaterials {
     public void addItem(CarportItem carportItem) {
         materialList.add(carportItem);
     }
-// TODO: GetTotalPrice
+
+    public int GetTotalPrice (List<CarportItem> materialList){
+        int totalPrice = 0;
+        for (CarportItem c: materialList) {
+            totalPrice += c.getPrice();
+        }
+        return totalPrice;
+    }
 }
 
 

@@ -4,11 +4,21 @@ public class Result {
     private int length;
     private int quantity;
     private int id;
+    private double price;
 
-    public Result(int length, int quantity, int id) {
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public Result(int length, int quantity, int id, double price) {
         this.length = length;
         this.quantity = quantity;
         this.id = id;
+        this.price = price;
     }
 
     public int getLength() {

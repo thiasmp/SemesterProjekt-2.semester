@@ -50,15 +50,15 @@ public class CalcCarportCommand extends CommandProtectedPage {
         Result plastmoBolt = calcCarport.calcPlastmoBolt(length, width);
 
 
-        CarportItem posts = new CarportItem(post.getLength(), post.getQuantity(), 0 , postDesc, post.getId());
-        CarportItem beams = new CarportItem(beam.getLength(), beam.getQuantity(), 0 , beamDesc, beam.getId());
-        CarportItem rafters = new CarportItem(rafter.getLength(), rafter.getQuantity(), 0, rafterDesc, rafter.getId());
-        CarportItem plastmos = new CarportItem(plastmo.getLength(), plastmo.getQuantity(), 0, plastmoDesc, plastmo.getId());
-        CarportItem bolts = new CarportItem(bolt.getLength(), bolt.getQuantity(), 0, boltDesc, bolt.getId());
-        CarportItem squareDiscs = new CarportItem(squareDisc.getLength(), squareDisc.getQuantity(), 0, squareDiscDesc, squareDisc.getId());
-        CarportItem uniRights = new CarportItem(uniRight.getLength(), uniRight.getQuantity(), 0, uniRightDesc, uniRight.getId());
-        CarportItem uniLefts = new CarportItem(uniLeft.getLength(), uniLeft.getQuantity(), 0, uniLeftDesc, uniLeft.getId());
-        CarportItem plastmoBolts = new CarportItem(plastmoBolt.getLength(), plastmoBolt.getQuantity(), 0 ,plastmoBoltDesc, plastmoBolt.getId());
+        CarportItem posts = new CarportItem(post.getLength(), post.getQuantity(), post.getPrice() , postDesc, post.getId());
+        CarportItem beams = new CarportItem(beam.getLength(), beam.getQuantity(), beam.getPrice() , beamDesc, beam.getId());
+        CarportItem rafters = new CarportItem(rafter.getLength(), rafter.getQuantity(), rafter.getPrice(), rafterDesc, rafter.getId());
+        CarportItem plastmos = new CarportItem(plastmo.getLength(), plastmo.getQuantity(), plastmo.getPrice(), plastmoDesc, plastmo.getId());
+        CarportItem bolts = new CarportItem(bolt.getLength(), bolt.getQuantity(), bolt.getPrice(), boltDesc, bolt.getId());
+        CarportItem squareDiscs = new CarportItem(squareDisc.getLength(), squareDisc.getQuantity(), squareDisc.getPrice(), squareDiscDesc, squareDisc.getId());
+        CarportItem uniRights = new CarportItem(uniRight.getLength(), uniRight.getQuantity(), uniRight.getPrice(), uniRightDesc, uniRight.getId());
+        CarportItem uniLefts = new CarportItem(uniLeft.getLength(), uniLeft.getQuantity(), uniLeft.getPrice(), uniLeftDesc, uniLeft.getId());
+        CarportItem plastmoBolts = new CarportItem(plastmoBolt.getLength(), plastmoBolt.getQuantity(), plastmoBolt.getPrice() ,plastmoBoltDesc, plastmoBolt.getId());
 
         billOfMaterials.addItem(posts);
         billOfMaterials.addItem(beams);
@@ -69,16 +69,12 @@ public class CalcCarportCommand extends CommandProtectedPage {
         billOfMaterials.addItem(uniRights);
         billOfMaterials.addItem(uniLefts);
         billOfMaterials.addItem(plastmoBolts);
-
-//        for (CarportItem c: billOfMaterials.getMaterialList()) {
-//            carportFacade.writeToOrderline(id,c.getId(), c.getDescription(), c.getQuantity(), c.getLength());
-//        }
-
-//        List<Stykliste> materialList = carportFacade.getMaterialListFromRequestID(getID);
+        double totalPrice = billOfMaterials.GetTotalPrice(billOfMaterials.getMaterialList());
 
         session.setAttribute("billOfMaterials", billOfMaterials.getMaterialList());
         session.setAttribute("længde", length);
         session.setAttribute("bredde", width);
+        session.setAttribute("totalpris", totalPrice);
 
         return pageToShow;
     }

@@ -4,11 +4,11 @@ public class CarportItem {
 
     private int length;
     private int quantity;
-    private int price;
+    private double price;
     private String description;
     private int id;
 
-    public CarportItem(int length, int quantity, int price, String description, int id) {
+    public CarportItem(int length, int quantity, double price, String description, int id) {
         this.length = length;
         this.quantity = quantity;
         this.price = price;
@@ -32,11 +32,11 @@ public class CarportItem {
         this.quantity = quantity;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

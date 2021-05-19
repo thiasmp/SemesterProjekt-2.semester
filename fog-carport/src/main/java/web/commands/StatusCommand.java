@@ -1,5 +1,6 @@
 package web.commands;
 
+import business.entities.CarportItem;
 import business.entities.Request;
 import business.exceptions.UserException;
 import business.services.CarportFacade;
@@ -26,6 +27,7 @@ public class StatusCommand extends CommandProtectedPage {
 
         System.out.println("here i am");
         int id = (int) session.getAttribute("id");
+        double price = (double) session.getAttribute("totalpris");
         System.out.println(id);
         String status = "";
         String denied = request.getParameter("Afvis");
@@ -34,8 +36,12 @@ public class StatusCommand extends CommandProtectedPage {
             status = denied;
         } else if (approved !=null && approved.equals("Godkendt")){
             status = approved;
+            List<CarportItem> materialList = (List<CarportItem>) session.getAttribute("billOfMaterials");
+            for (CarportItem c:materialList) {
+                carportFacade.writeToOrderline(id, c.getId(), c.getDescription(), c.getQuantity(), c.getLength());
+            }
         }
-        carportFacade.updateStatus(id, status);
+        carportFacade.updateStatus(id, status, price);
         List<Request> requestList = carportFacade.getAllRequestsFromDB();
 
         session.setAttribute("requestList", requestList);
