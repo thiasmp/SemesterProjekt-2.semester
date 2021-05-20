@@ -28,12 +28,7 @@
                     <td>${request.email}</td>
                 </tr>
             </c:forEach>
-<%--            <tr>--%>
-<%--                <td></td>--%>
-<%--                <td></td>--%>
-<%--                <td>Pris i alt:</td>--%>
-<%--                <td>${sessionScope.basket.totalSum()}</td>--%>
-<%--            </tr>--%>
+
         </table>
 
 

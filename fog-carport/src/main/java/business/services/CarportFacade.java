@@ -1,5 +1,6 @@
 package business.services;
 
+import business.entities.CarportItem;
 import business.entities.Request;
 import business.entities.RequestConfirm;
 import business.entities.Stykliste;
@@ -52,5 +53,10 @@ public class CarportFacade
 
     public List<RequestConfirm> getConfirmedUserRequestsFromDB(int id) throws UserException {
         return carportMapper.getConfirmedUserRequestsFromDB(id);
+    }
+
+    public List<CarportItem> readFromOrderline(int id) throws UserException {
+        carportMapper.readFromOrderline(id);
+        return null;
     }
 }

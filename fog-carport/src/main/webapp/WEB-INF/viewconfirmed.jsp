@@ -32,12 +32,6 @@
                     <td>${request.status}</td>
                 </tr>
             </c:forEach>
-                <%--            <tr>--%>
-                <%--                <td></td>--%>
-                <%--                <td></td>--%>
-                <%--                <td>Pris i alt:</td>--%>
-                <%--                <td>${sessionScope.basket.totalSum()}</td>--%>
-                <%--            </tr>--%>
         </table>
 
         <div style="margin-top: 5em;" class="container">

@@ -25,7 +25,6 @@ public class StatusCommand extends CommandProtectedPage {
 
         HttpSession session = request.getSession();
 
-        System.out.println("here i am");
         int id = (int) session.getAttribute("id");
         double price = (double) session.getAttribute("totalpris");
         System.out.println(id);

@@ -1,9 +1,12 @@
 package business.persistence;
 
+import business.entities.CarportItem;
 import business.entities.Request;
 import business.entities.RequestConfirm;
 import business.entities.Stykliste;
 import business.exceptions.UserException;
+import com.google.protobuf.RepeatedFieldBuilder;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -138,7 +141,7 @@ public class CarportMapper {
         return 0;
     }
 
-    public void writeToOrderline( int requestID, int materialID, String description, int amount, int length) throws UserException {
+    public void writeToOrderline(int requestID, int materialID, String description, int amount, int length) throws UserException {
         try (Connection connection = database.connect()) {
             String sql = "INSERT INTO orderline (forespørgsel_id, materiale_id, beskrivelse, antal, længde) " +
                     "VALUES (?, ?, ?, ?, ?)";
@@ -222,5 +225,33 @@ public class CarportMapper {
             throw new UserException(ex.getMessage());
         }
     }
+    public List<CarportItem> readFromOrderline(int id) throws UserException {
+        List<CarportItem> materialList = new ArrayList<>();
+        try (Connection connection = database.connect()) {
+            String sql = "SELECT materiale_id, beskrivelse, antal, orderline.længde, forespørgsel.pris " +
+                    "FROM orderline INNER JOIN forespørgsel ON orderline.forespørgsel_id = forespørgsel.id WHERE forespørgsel_id = ?;";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setInt(1, id);
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    int materialID = rs.getInt("materiale_id");
+                    String description = rs.getString("beskrivelse");
+                    int amount = rs.getInt("antal");
+                    int length = rs.getInt("længde");
+                    int price = rs.getInt("pris");
+                    materialList.add(new CarportItem(length, amount, price, description, materialID));
+                }
+                return materialList;
+
+            } catch (SQLException ex) {
+                throw new UserException(ex.getMessage());
+            }
+        } catch (SQLException | UserException ex) {
+            throw new UserException(ex.getMessage());
+        }
+    }
 }
+
+
 

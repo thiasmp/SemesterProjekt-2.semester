@@ -21,6 +21,38 @@
 
             ${requestScope.svgdrawing}
 
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <td>Materiale ID</td>
+                    <td>Beskrivelse</td>
+                    <td>Længde</td>
+                    <td>Antal</td>
+                </tr>
+                </thead>
+
+                <c:forEach var="material" items="${sessionScope.materialList}">
+                    <tr>
+                        <td>${material.id}</td>
+                        <td>${material.description}</td>
+                        <td>${material.length}</td>
+                        <td>${material.quantity}</td>
+                    </tr>
+                </c:forEach>
+            </table>
+
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <td>Total Pris</td>
+                </tr>
+                </thead>
+                    <tr>
+                        <td>${material.price}</td>
+
+                    </tr>
+            </table>
 
 
         </div>

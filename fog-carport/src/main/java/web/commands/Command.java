@@ -34,6 +34,7 @@ public abstract class Command
         commands.put("styklistepage", new CalcCarportCommand("styklistepage", "employee"));
         commands.put("statuspage", new StatusCommand("allrequestspage", "employee"));
         commands.put("viewconfirmed", new ShowConfirmedOrdersForUserCommand("viewconfirmed","customer"));
+        commands.put("svgpage", new ShowSVGCommand("svgpage", "customer"));
     }
 
     public static Command fromPath(

@@ -1,22 +1,22 @@
 package web.commands;
 
-import business.entities.Request;
-import business.entities.RequestConfirm;
+import business.entities.CarportItem;
 import business.exceptions.UserException;
+import business.persistence.CarportMapper;
 import business.services.CarportFacade;
 import business.services.UserFacade;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
-public class ShowConfirmedOrdersForUserCommand extends CommandProtectedPage
-{
+public class ShowSVGCommand extends CommandProtectedPage {
+
     CarportFacade carportFacade;
     UserFacade userFacade;
-
-    public ShowConfirmedOrdersForUserCommand(String pageToShow, String role) {
+    public ShowSVGCommand(String pageToShow, String role) {
         super(pageToShow, role);
         this.carportFacade = new CarportFacade(database);
         this.userFacade = new UserFacade(database);
@@ -24,11 +24,14 @@ public class ShowConfirmedOrdersForUserCommand extends CommandProtectedPage
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
-        HttpSession session = request.getSession();
-        int id = userFacade.getUserIDFromDB((String) session.getAttribute("email"));
-        List<RequestConfirm> requestConfirmList = carportFacade.getConfirmedUserRequestsFromDB(id);
 
-        session.setAttribute("requestConfirmList", requestConfirmList);
+        HttpSession session = request.getSession();
+
+        int id = Integer.parseInt(request.getParameter("forespørgsel"));
+
+        List<CarportItem> materialList = carportFacade.readFromOrderline(id);
+        session.setAttribute("materialList", materialList);
+
 
         return pageToShow;
     }
