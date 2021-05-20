@@ -21,7 +21,7 @@ public class CalcCarport {
         int beamLength = length;
         int id = 10;
         double pricePerUnit = 0.46;
-        double price = beamLength * pricePerUnit;
+        double price = (beamLength * pricePerUnit) * quantity;
         return new Result(beamLength, quantity, id, price);
     }
 
@@ -43,7 +43,7 @@ public class CalcCarport {
         int quantity = (int) Math.ceil((float)totalLength/plastmoWidth);
         int id = 16;
         double pricePerUnit = 0.37;
-        double price = pricePerUnit * plastmoLength;
+        double price = (pricePerUnit * plastmoLength) * quantity;
         return new Result(plastmoLength, quantity, id, price);
     }
 

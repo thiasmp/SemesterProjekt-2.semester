@@ -39,6 +39,17 @@
                     <td>${material.price}</td>
                 </tr>
             </c:forEach>
+
+        </table>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <td>Total Pris</td>
+            </tr>
+            </thead>
+            <tr>
+                <td>${sessionScope.totalpris}</td>
+            </tr>
         </table>
         <form name="status" action="${pageContext.request.contextPath}/fc/statuspage" method="POST">
         <button class="btn btn-primary" type="submit" value="Godkendt" name="Godkend">Godkend</button>
