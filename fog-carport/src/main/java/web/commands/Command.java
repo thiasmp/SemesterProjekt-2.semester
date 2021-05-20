@@ -33,6 +33,7 @@ public abstract class Command
         commands.put("allrequestspage", new GetAllRequestCommand("allrequestspage", "employee"));
         commands.put("styklistepage", new CalcCarportCommand("styklistepage", "employee"));
         commands.put("statuspage", new StatusCommand("allrequestspage", "employee"));
+        commands.put("viewconfirmed", new ShowConfirmedOrdersForUserCommand("viewconfirmed","customer"));
     }
 
     public static Command fromPath(

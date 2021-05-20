@@ -15,6 +15,8 @@
         <br/>
         <br/>
         <p>Klik her for at lav en <a href="${pageContext.request.contextPath}/fc/newrequest">ny forespørgsel</a>
+
+        <p>Klik her for at se  <a href="${pageContext.request.contextPath}/fc/viewconfirmed">godkendte ordre</a>
     </jsp:body>
 
 </t:genericpage>

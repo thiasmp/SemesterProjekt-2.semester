@@ -1,6 +1,7 @@
 package business.services;
 
 import business.entities.Request;
+import business.entities.RequestConfirm;
 import business.entities.Stykliste;
 import business.persistence.CarportMapper;
 import business.persistence.Database;
@@ -47,5 +48,9 @@ public class CarportFacade
 
     public double getPriceFromDB(int id) throws UserException {
         return carportMapper.getPriceFromDB(id);
+    }
+
+    public List<RequestConfirm> getConfirmedUserRequestsFromDB(int id) throws UserException {
+        return carportMapper.getConfirmedUserRequestsFromDB(id);
     }
 }

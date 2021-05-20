@@ -1,6 +1,7 @@
 package business.persistence;
 
 import business.entities.Request;
+import business.entities.RequestConfirm;
 import business.entities.Stykliste;
 import business.exceptions.UserException;
 import java.sql.*;
@@ -193,6 +194,33 @@ public class CarportMapper {
             throw new UserException(ex.getMessage());
         }
         return 0;
+    }
+
+    public List<RequestConfirm> getConfirmedUserRequestsFromDB(int id) throws UserException {
+
+        ArrayList<RequestConfirm> requestList = new ArrayList<>();
+
+        try (Connection connection = database.connect()) {
+            String sql = "SELECT forespørgsel.id, status, længde, bredde FROM forespørgsel  WHERE status = 'Godkendt' AND user_id = ?;";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setInt(1, id);
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    int forespørgsel_id = rs.getInt("forespørgsel.id");
+                    String status = rs.getString("status");
+                    int length = rs.getInt("længde");
+                    int width = rs.getInt("bredde");
+
+                    requestList.add(new RequestConfirm(forespørgsel_id, status, length, width));
+                }
+                return requestList;
+            } catch (SQLException ex) {
+                throw new UserException(ex.getMessage());
+            }
+        } catch (SQLException | UserException ex) {
+            throw new UserException(ex.getMessage());
+        }
     }
 }
 
