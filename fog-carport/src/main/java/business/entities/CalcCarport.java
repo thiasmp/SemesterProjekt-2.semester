@@ -8,7 +8,7 @@ public class CalcCarport {
     CarportMapper carportMapper;
 
     public Result calcPosts(int length) throws UserException {
-        int quantity = 2*(2+(length - 100 - 20)/310);
+        int quantity = 2*(2+(length - 110 - 30)/310);
         int postLength = 300;
         int id = 3;
         double pricePerUnit = 120;

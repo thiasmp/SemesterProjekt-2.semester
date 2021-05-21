@@ -29,10 +29,10 @@ public class GetRequestCommand extends CommandProtectedPage{
         int width = Integer.parseInt(request.getParameter("bredde"));
         int id = userFacade.getUserIDFromDB((String) session.getAttribute("email"));
 
-        if (length < 0 || length > 800 || width < 0 || width > 700) {
+        if (length < 400 || length > 800 || width < 300 || width > 700) {
             Boolean test = true;
             request.setAttribute("booleanTest", test);
-            String errorMsg = "Brug kun tal i felterne der er positive, over 0 og under (længde) 800 & (bredde) 700";
+            String errorMsg = "Skriv kun tal mellem 400-800 i længden og 300-700 i bredden";
             request.setAttribute("newError", errorMsg);
             return "nyforespørgselpage";
         } else {
