@@ -32,12 +32,13 @@ public class ShowSVGCommand extends CommandProtectedPage {
         int id = Integer.parseInt(request.getParameter("forespørgsel"));
         int length = carportFacade.getLengthFromDB(id);
         int width = carportFacade.getWidthFromDB(id);
-        int offset = 40;
-        int endpost = length - offset;
-        int startpost = 100 + 110;
-        int sixpostX = (startpost + (length - startpost - offset)/2);
-        int eightpostX = (startpost + (length - startpost - offset)/3);
-        int offseteightpostX = (length - startpost -offset)/3;
+        int startOffset = 100;
+        int endOffSet = 40;
+        int endPost = length - endOffSet;
+        int startPost = 100 + 110;
+        int sixPostX = (startPost + (length - startPost - endOffSet)/2);
+        int eightPostX = (startPost + (length - startPost - endOffSet)/3);
+        int offSetEightPostX = (length - startPost -endOffSet)/3;
 
 
 
@@ -49,48 +50,62 @@ public class ShowSVGCommand extends CommandProtectedPage {
         session.setAttribute("length",length);
         session.setAttribute("width",width);
 
-        SVG svg = new SVG(0, 0, "0 0 800 600", 100, 50 );
+        SVG svg = new SVG(0, 0, "0 0 1000 800", 100, 50 );
         //tilføjer spær
         for (int x = 0; x < materialList.get(2).getQuantity(); x++)
         {
-            svg.addRect(100 + 55 * x, 0, materialList.get(2).getLength(), 5);
+            svg.addRect(startOffset + 55 * x, 0, materialList.get(2).getLength(), 5);
         }
+        //tilføjer remme
+        svg.addRect(startOffset,37,5,length);
+        svg.addRect(startOffset,width-42,5,length);
 
         //tilføjer stolper
-        if (length > 450) {
-            svg.addRect(startpost, 35, 10, 10);
-            svg.addRect(endpost, 35, 10, 10);
-            svg.addRect(startpost, width - 45, 10, 10);
-            svg.addRect(endpost, width - 45, 10, 10);
+        if (length > 400) {
+            svg.addRect(startPost, 35, 10, 10);
+            svg.addRect(endPost, 35, 10, 10);
+            svg.addRect(startPost, width - 45, 10, 10);
+            svg.addRect(endPost, width - 45, 10, 10);
         }
         else
         {
-            svg.addRect(100 + 50,35,10,10);
-            svg.addRect(length - 40,35,10,10);
-            svg.addRect(100 + 50,width - 45,10,10);
-            svg.addRect(length - 40,width - 45,10,10);
+            svg.addRect(startOffset + 50,35,10,10);
+            svg.addRect(startOffset + length - endOffSet,35,10,10);
+            svg.addRect(startOffset + 50,width - 45,10,10);
+            svg.addRect(startOffset + length - endOffSet,width - 45,10,10);
 
         }
 
         if (materialList.get(0).getQuantity() == 6)
         {
-            svg.addRect(sixpostX,35,10,10);
-            svg.addRect(sixpostX,width-45,10,10);
+            svg.addRect(sixPostX,35,10,10);
+            svg.addRect(sixPostX,width-45,10,10);
         }
         else if (materialList.get(0).getQuantity() == 8)
         {
-            svg.addRect(eightpostX,35,10,10);
-            svg.addRect(eightpostX,width-45,10,10);
-            svg.addRect(eightpostX + offseteightpostX,35,10,10);
-            svg.addRect(eightpostX + offseteightpostX,width-45,10,10);
+            svg.addRect(eightPostX,35,10,10);
+            svg.addRect(eightPostX,width-45,10,10);
+            svg.addRect(eightPostX + offSetEightPostX,35,10,10);
+            svg.addRect(eightPostX + offSetEightPostX,width-45,10,10);
         }
-        else
+
+        svg.addLine(70,0,70,width);
+        svg.addLine(startOffset,width+30,length+startOffset,width+30);
+        svg.lengthTextTemplate(startOffset + (length/2),width+50, length);
+        svg.widthTextTemplate(50,width/2, width);
+
+//        svg.addArrowHeadTemplate(12,12,0,6);
+//        svg.addArrowHeadTemplate2(12,12,0,6);
+//        svg.addArrowTemplate(120,0,70,width);
+
+        //tilføjer hulbånd
+        //svg.addLine(startOffset + 55, );
 
 
-//        for (int x = 0; x < materialList.get(0).getQuantity(); x++)
-//        {
-//            svg.addRect(100 + 110 * x,35,10,10 );
-//        }
+
+
+
+
         request.setAttribute("svgdrawing", svg.toString());
 
 

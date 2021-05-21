@@ -18,6 +18,13 @@ public class SVG
             " preserveAspectRatio=\"xMinYMin\">";
 
     private final String rectTemplate = "<rect x=\"%d\" y=\"%d\" height=\"%d\" width=\"%d\" style=\"stroke:#000000; fill: #ffffff\" />";
+    private final String lineTemplate = "<line x1=\"%d\" y1=\"%d\" x2=\"%d\" y2=\"%d\" style=\"stroke:#000000; stroke-dasharray:10,10\" />";
+    private final String arrowHeadTemplate = "<marker id=\"beginArrow\" markerWidth=\"%d\" markerHeight=\"%d\" refX=\"%d\" refY=\"%d\" orient=\"auto\"> <path d=\"M0,6 L12,0 L12,12 L0,6:\" style=\"fill: #000000;\" />";
+    private final String arrowHeadTemplate2 = "<marker id=\"endArrow\" markerWidth=\"%d\" markerHeight=\"%d\" refX=\"%d\" refY=\"%d\" orient=\"auto\"> <path d=\"M0,6 L12,0 L12,12 L0,6:\" style=\"fill: #000000;\" />";
+    private final String arrowTemplate ="<line x1=\"%d\" y1=\"%d\" x2=\"%d\" y2=\"%d\" style=\"stroke:#000000; marker-start: url(#beginArrow); marker-end: url(#endArrow)\"></line>";
+    private final String lengthTextTemplate ="<text style=\"text-anchor: middle\" transform=\"translate(\"%d\",\"%d\")\">\"%d\" cm </text>";
+    private final String widthTextTemplate ="<text style=\"text-anchor: middle\" transform=\"translate(\"%d\",\"%d\")\"rotate(-90) >\"%d\" cm</text>";
+
 
     public SVG(int x, int y, String viewBox, int width, int height)
     {
@@ -34,15 +41,43 @@ public class SVG
         svg.append(String.format(rectTemplate, x, y, height, width));
     }
 
-    public void addLine(int x1, int y1, int x2, int y2 )
+    public void addLine(int x1, int y1, int x2, int y2)
     {
-
+        svg.append(String.format(lineTemplate, x1, y1, x2, y2));
     }
 
     public void addSvg(SVG innerSVG)
     {
         svg.append(innerSVG.toString());
     }
+
+    public void addArrowTemplate(int x1, int y1, int x2, int y2)
+    {
+        svg.append(String.format(arrowTemplate, x1, y1, x2, y2));
+    }
+
+    public void addArrowHeadTemplate(int markerwidth, int markerheight, int refX, int refY)
+    {
+        svg.append(String.format(arrowHeadTemplate, markerwidth, markerheight, refX, refY));
+    }
+
+    public void addArrowHeadTemplate2(int markerwidth, int markerheight, int refX, int refY)
+    {
+        svg.append(String.format(arrowHeadTemplate2, markerwidth, markerheight, refX, refY));
+    }
+
+    public void lengthTextTemplate(int x, int y, int l)
+    {
+        svg.append(String.format(lengthTextTemplate, x, y, l));
+    }
+
+    public void widthTextTemplate(int x, int y, int l)
+    {
+        svg.append(String.format(widthTextTemplate, x, y, l));
+    }
+
+
+
 
     @Override
     public String toString()

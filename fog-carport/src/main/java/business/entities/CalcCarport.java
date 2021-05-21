@@ -26,8 +26,9 @@ public class CalcCarport {
     }
 
     public Result calcRafter(int length, int width) throws UserException {
-        int quantity = length/55;
+
         int rafterLength = width;
+        int quantity = (int) Math.ceil((float)length/55);;
         int id = 12;
         double pricePerUnit = 0.46;
         double price = (pricePerUnit * rafterLength) * quantity;
