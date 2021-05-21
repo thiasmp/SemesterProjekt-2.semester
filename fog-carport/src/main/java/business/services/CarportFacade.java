@@ -56,7 +56,6 @@ public class CarportFacade
     }
 
     public List<CarportItem> readFromOrderline(int id) throws UserException {
-        carportMapper.readFromOrderline(id);
-        return null;
+        return carportMapper.readFromOrderline(id);
     }
 }

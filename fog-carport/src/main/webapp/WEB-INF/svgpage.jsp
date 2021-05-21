@@ -15,9 +15,7 @@
 
         <div>
             <h2>Tegning</h2>
-
             <p>her indsættes en tegning:</p>
-
 
             ${requestScope.svgdrawing}
 
@@ -30,7 +28,6 @@
                     <td>Antal</td>
                 </tr>
                 </thead>
-
                 <c:forEach var="material" items="${sessionScope.materialList}">
                     <tr>
                         <td>${material.id}</td>
@@ -41,7 +38,6 @@
                 </c:forEach>
             </table>
 
-
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -49,13 +45,9 @@
                 </tr>
                 </thead>
                     <tr>
-                        <td>${material.price}</td>
-
+                        <td>${sessionScope.price}</td>
                     </tr>
             </table>
-
-
         </div>
-
     </jsp:body>
 </t:genericpage>

@@ -32,6 +32,9 @@ public class ShowSVGCommand extends CommandProtectedPage {
         List<CarportItem> materialList = carportFacade.readFromOrderline(id);
         session.setAttribute("materialList", materialList);
 
+        double price = materialList.get(0).getPrice();
+        session.setAttribute("price", price);
+
 
         return pageToShow;
     }
