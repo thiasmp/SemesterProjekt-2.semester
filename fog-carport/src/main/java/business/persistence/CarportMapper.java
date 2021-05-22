@@ -178,27 +178,6 @@ public class CarportMapper {
         }
     }
 
-    public double getPriceFromDB(int id) throws UserException {
-        try (Connection connection = database.connect()) {
-            String sql = "SELECT priceperunit FROM materiale WHERE id = ?";
-
-            try (PreparedStatement ps = connection.prepareStatement(sql)) {
-                ps.setInt(1, id);
-                ResultSet rs = ps.executeQuery();
-                while (rs.next()) {
-                    int price = rs.getInt("priceperunit");
-                    return price;
-                }
-
-            } catch (SQLException ex) {
-                throw new UserException(ex.getMessage());
-            }
-        } catch (SQLException | UserException ex) {
-            throw new UserException(ex.getMessage());
-        }
-        return 0;
-    }
-
     public List<RequestConfirm> getConfirmedUserRequestsFromDB(int id) throws UserException {
 
         ArrayList<RequestConfirm> requestList = new ArrayList<>();
@@ -252,6 +231,3 @@ public class CarportMapper {
         }
     }
 }
-
-
-

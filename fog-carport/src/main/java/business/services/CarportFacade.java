@@ -47,10 +47,6 @@ public class CarportFacade
         carportMapper.updateStatus(id, status, price);
     }
 
-    public double getPriceFromDB(int id) throws UserException {
-        return carportMapper.getPriceFromDB(id);
-    }
-
     public List<RequestConfirm> getConfirmedUserRequestsFromDB(int id) throws UserException {
         return carportMapper.getConfirmedUserRequestsFromDB(id);
     }
