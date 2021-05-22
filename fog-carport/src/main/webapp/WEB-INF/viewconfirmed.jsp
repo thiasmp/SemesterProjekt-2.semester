@@ -53,9 +53,5 @@
             </c:if>
             <button class="btn btn-primary" type="submit">Se stykliste og tegning</button>
         </form>
-
-
-
-
     </jsp:body>
 </t:genericpage>

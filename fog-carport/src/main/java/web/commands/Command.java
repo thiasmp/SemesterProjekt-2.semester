@@ -49,7 +49,6 @@ public abstract class Command
             database = db;
             initCommands(database);
         }
-
         return commands.getOrDefault(action, new CommandUnknown());   // unknowncommand is default
     }
 
@@ -57,5 +56,4 @@ public abstract class Command
             HttpServletRequest request,
             HttpServletResponse response)
             throws UserException;
-
 }

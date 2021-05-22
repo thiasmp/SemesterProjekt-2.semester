@@ -3,8 +3,6 @@ package web.commands;
 import business.exceptions.UserException;
 import business.services.CarportFacade;
 import business.services.UserFacade;
-
-import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
