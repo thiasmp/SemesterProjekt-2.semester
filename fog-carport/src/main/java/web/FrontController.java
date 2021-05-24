@@ -16,8 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "FrontController", urlPatterns = {"/fc/*"})
 public class FrontController extends HttpServlet
 {
-    private final static String USER = "root";
-    private final static String PASSWORD = "Cervelo2011";
+    private final static String USER = "mathiSQL";
+    private final static String PASSWORD = "t>jj/<7dyR?_.F5@";
     private final static String URL = "jdbc:mysql://localhost:3306/fog?serverTimezone=CET";
 
     public static Database database;
