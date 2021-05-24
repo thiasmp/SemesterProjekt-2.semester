@@ -23,7 +23,3 @@ public class BillOfMaterials {
         return totalPrice;
     }
 }
-
-
-
-

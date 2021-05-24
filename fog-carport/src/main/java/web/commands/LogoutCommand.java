@@ -1,7 +1,5 @@
 package web.commands;
 
-import business.services.UserFacade;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -11,7 +9,6 @@ public class LogoutCommand extends CommandUnprotectedPage {
     public LogoutCommand(String pageToShow)
     {
         super(pageToShow);
-       // Here you can insert code to run before logout
     }
 
     @Override

@@ -7,17 +7,12 @@
     </jsp:attribute>
     <jsp:attribute name="footer">
     </jsp:attribute>
-
     <jsp:body>
         <h1>Velkommen ${sessionScope.email} </h1>
         Du er nu logget ind på Fog's carport side
-
         <br/>
         <br/>
         <p>Klik her for at lav en <a href="${pageContext.request.contextPath}/fc/newrequest">ny forespørgsel</a>
-
         <p>Klik her for at se  <a href="${pageContext.request.contextPath}/fc/viewconfirmed">godkendte ordre</a>
     </jsp:body>
-
 </t:genericpage>
-

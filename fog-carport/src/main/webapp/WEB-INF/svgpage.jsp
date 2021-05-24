@@ -12,7 +12,6 @@
     </jsp:attribute>
 
     <jsp:body>
-
         <div>
             <table class="table table-striped">
                 <thead>
@@ -45,7 +44,6 @@
             </table>
             <h2>Tegning</h2>
             <p>Her er din carport</p>
-
                 ${requestScope.svgdrawing}
         </div>
     </jsp:body>

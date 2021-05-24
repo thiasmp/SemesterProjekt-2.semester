@@ -29,7 +29,6 @@
                         <input id="password2" class="form-control" type="password" name="password2" value="${param.password2}"  placeholder="Repeat the password">
                     </div>
                 </div>
-
                 <input class="btn btn-primary" type="submit" type="submit" value="Submit">
             </form>
 
@@ -41,5 +40,3 @@
         </div>
     </jsp:body>
 </t:genericpage>
-
-

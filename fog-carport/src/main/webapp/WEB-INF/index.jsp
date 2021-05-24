@@ -10,31 +10,24 @@
     <jsp:attribute name="footer">
         <c:set var="addHomeLink" value="${false}" scope="request"/>
     </jsp:attribute>
-
     <jsp:body>
-
         <div>
             <h1>Velkommen til Fog's Carport</h1>
             <br/>
             <h2>Vi sælger de bedste carporte i landet</h2>
 
             <div style="margin-top: 3em;margin-bottom: 3em;">
-                Log-in eller opret dig for at sende en forespørgsel på din skræddersyet carport
+                Hvis du er logget ind kan du sende en forespørgsel på en skræddersyet carport
             </div>
 
             <c:if test="${sessionScope.role == 'employee' }">
-                <p style="font-size: larger">This is what you can do,
-                    since your are logged in as an employee</p>
-                 <p><a href="fc/employeepage">Employee Page</a>
+                 <p><a href="fc/employeepage">Gå til administrator side</a>
              </c:if>
 
              <c:if test="${sessionScope.role == 'customer' }">
-                <p style="font-size: larger">This is what you can do, since your
-                    are logged in as a customer</p>
-                <p><a href="fc/customerpage">Customer Page</a>
+
+                <p><a href="fc/customerpage">Gå til kunde side</a>
             </c:if>
-
         </div>
-
     </jsp:body>
 </t:genericpage>

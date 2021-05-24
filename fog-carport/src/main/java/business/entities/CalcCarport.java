@@ -1,13 +1,11 @@
 package business.entities;
 
 import business.exceptions.UserException;
-import business.persistence.CarportMapper;
 
 public class CalcCarport {
 
-    CarportMapper carportMapper;
 
-    public Result calcPosts(int length) throws UserException {
+    public Result calcPosts(int length) {
         int quantity = 2*(2+(length - 110 - 30)/310);
         int postLength = 300;
         int id = 3;
@@ -16,7 +14,7 @@ public class CalcCarport {
         return new Result(postLength, quantity, id, price);
     }
 
-    public Result calcBeams(int length) throws UserException {
+    public Result calcBeams(int length) {
         int quantity = 2;
         int beamLength = length;
         int id = 10;
@@ -25,7 +23,7 @@ public class CalcCarport {
         return new Result(beamLength, quantity, id, price);
     }
 
-    public Result calcRafter(int length, int width) throws UserException {
+    public Result calcRafter(int length, int width) {
 
         int rafterLength = width;
         int quantity = (int) Math.ceil((float)length/55);;
@@ -35,7 +33,7 @@ public class CalcCarport {
         return new Result(rafterLength, quantity, id, price);
     }
 
-    public Result calcPlastmo(int length, int width) throws UserException {
+    public Result calcPlastmo(int length, int width) {
         int plastmoWidth = 109;
         int plastmoLength = width;
         int amount = (int) Math.ceil((float)length/plastmoWidth);
@@ -48,7 +46,7 @@ public class CalcCarport {
         return new Result(plastmoLength, quantity, id, price);
     }
 
-    public Result calcPostbolts(int length) throws UserException {
+    public Result calcPostbolts(int length) {
         int boltLength = 12;
         Result posts = calcPosts(length);
         int quantity = posts.getQuantity() * 2;
@@ -58,7 +56,7 @@ public class CalcCarport {
         return new Result(boltLength, quantity, id, price);
     }
 
-    public Result calcSquareDiscs(int length) throws UserException {
+    public Result calcSquareDiscs(int length) {
         int discSize = 4;
         Result bolts = calcPostbolts(length);
         int quantity = bolts.getQuantity();
@@ -68,7 +66,7 @@ public class CalcCarport {
         return new Result(discSize, quantity, id, price);
     }
 
-    public Result calcUniRight(int length, int width) throws UserException {
+    public Result calcUniRight(int length, int width) {
         int uniSize = 19;
         Result rafters = calcRafter(length, width);
         int quantity = rafters.getQuantity();
@@ -78,7 +76,7 @@ public class CalcCarport {
         return new Result(uniSize, quantity, id, price);
     }
 
-    public Result calcUniLeft(int length, int width) throws UserException {
+    public Result calcUniLeft(int length, int width) {
         int uniSize = 19;
         Result rafters = calcRafter(length, width);
         int quantity = rafters.getQuantity();
@@ -88,7 +86,7 @@ public class CalcCarport {
         return new Result(uniSize, quantity, id, price);
     }
 
-    public Result calcPlastmoBolt(int length, int width) throws UserException {
+    public Result calcPlastmoBolt(int length, int width) {
         int boltSize = 0;
         Result plastmo = calcPlastmo(length, width);
         int quantity = (int) Math.ceil((float)plastmo.getQuantity()/4);

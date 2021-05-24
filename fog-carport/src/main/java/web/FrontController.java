@@ -3,7 +3,6 @@ package web;
 import business.exceptions.UserException;
 import business.persistence.Database;
 import web.commands.*;
-
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.logging.Level;
@@ -25,7 +24,6 @@ public class FrontController extends HttpServlet
 
     public void init() throws ServletException
     {
-        // Initialize database connection
         if (database == null)
         {
             try
@@ -37,9 +35,6 @@ public class FrontController extends HttpServlet
                 Logger.getLogger("web").log(Level.SEVERE, ex.getMessage(), ex);
             }
         }
-
-        // Initialize whatever global datastructures needed here:
-
     }
 
     protected void processRequest(
@@ -99,5 +94,4 @@ public class FrontController extends HttpServlet
     {
         return "FrontController for application";
     }
-
 }

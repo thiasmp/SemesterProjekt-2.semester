@@ -3,7 +3,6 @@ package business.services;
 import business.entities.CarportItem;
 import business.entities.Request;
 import business.entities.RequestConfirm;
-import business.entities.Stykliste;
 import business.persistence.CarportMapper;
 import business.persistence.Database;
 import business.exceptions.UserException;
@@ -25,10 +24,6 @@ public class CarportFacade
 
     public List<Request> getAllRequestsFromDB() throws UserException {
         return carportMapper.getAllRequestsFromDB();
-    }
-
-    public List<Stykliste> getMaterialListFromRequestID (int id) throws UserException {
-        return carportMapper.getMaterialListFromRequestID(id);
     }
 
     public int getLengthFromDB(int id) throws UserException {

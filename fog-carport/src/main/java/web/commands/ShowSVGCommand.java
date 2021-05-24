@@ -14,6 +14,7 @@ public class ShowSVGCommand extends CommandProtectedPage {
 
     CarportFacade carportFacade;
     UserFacade userFacade;
+
     public ShowSVGCommand(String pageToShow, String role) {
         super(pageToShow, role);
         this.carportFacade = new CarportFacade(database);
@@ -63,9 +64,8 @@ public class ShowSVGCommand extends CommandProtectedPage {
                 svg.addRect(startOffset + length - endOffSet, 35, 10, 10);
                 svg.addRect(startOffset + 50, width - 45, 10, 10);
                 svg.addRect(startOffset + length - endOffSet, width - 45, 10, 10);
-
             }
-
+            //tilføjer stolper hvis mere end 4
             if (materialList.get(0).getQuantity() == 6) {
                 svg.addRect(sixPostX, 35, 10, 10);
                 svg.addRect(sixPostX, width - 45, 10, 10);

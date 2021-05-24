@@ -41,11 +41,6 @@
                 </c:if>
                 <button class="btn btn-primary" type="submit">Send forespørgsel</button>
             </form>
-
-
         </div>
-
     </jsp:body>
-
 </t:genericpage>
-

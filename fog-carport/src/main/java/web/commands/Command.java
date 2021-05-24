@@ -2,15 +2,12 @@ package web.commands;
 
 import business.exceptions.UserException;
 import business.persistence.Database;
-
 import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public abstract class Command
 {
-    //Return a token string from the execute method to make a client side redirect,
-    // instead of a server side (forward) redirect
     public final static String REDIRECT_INDICATOR = "#*redirect*#_###_";
     public final static String WAS_NOT_FOUND_COMMAND ="404_NOT_FOUND";
 

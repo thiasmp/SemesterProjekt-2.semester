@@ -6,7 +6,6 @@ import business.services.CarportFacade;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.List;
 
 public class CalcCarportCommand extends CommandProtectedPage {
 
@@ -23,7 +22,6 @@ public class CalcCarportCommand extends CommandProtectedPage {
         HttpSession session = request.getSession();
         CalcCarport calcCarport = new CalcCarport();
         BillOfMaterials billOfMaterials = new BillOfMaterials();
-
         int id = Integer.parseInt(request.getParameter("forespørgsel"));
         session.setAttribute("id", id);
         int length = carportFacade.getLengthFromDB(id);
@@ -48,7 +46,6 @@ public class CalcCarportCommand extends CommandProtectedPage {
         Result uniRight = calcCarport.calcUniRight(length, width);
         Result uniLeft = calcCarport.calcUniLeft(length, width);
         Result plastmoBolt = calcCarport.calcPlastmoBolt(length, width);
-
 
         CarportItem posts = new CarportItem(post.getLength(), post.getQuantity(), post.getPrice() , postDesc, post.getId());
         CarportItem beams = new CarportItem(beam.getLength(), beam.getQuantity(), beam.getPrice() , beamDesc, beam.getId());

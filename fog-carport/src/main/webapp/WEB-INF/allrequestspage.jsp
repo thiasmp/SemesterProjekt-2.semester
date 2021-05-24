@@ -28,9 +28,7 @@
                     <td>${request.email}</td>
                 </tr>
             </c:forEach>
-
         </table>
-
 
         <div style="margin-top: 5em;" class="container">
             <p>Se stykliste for forespørgsels id: </p>
@@ -52,8 +50,6 @@
                 <button class="btn btn-primary" type="submit">Se stykliste</button>
             </form>
 
-
         </div>
-
     </jsp:body>
 </t:genericpage>

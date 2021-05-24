@@ -16,7 +16,6 @@ public class GetRequestCommand extends CommandProtectedPage{
         super(pageToShow, role);
         this.carportFacade = new CarportFacade(database);
         this.userFacade = new UserFacade(database);
-
     }
 
     @Override

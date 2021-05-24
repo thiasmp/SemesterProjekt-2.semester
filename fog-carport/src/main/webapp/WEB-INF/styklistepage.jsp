@@ -19,17 +19,6 @@
         </tr>
         </thead>
 
-<%--        <c:forEach var="material" items="${sessionScope.billOfMaterials}">--%>
-<%--            <tr>--%>
-<%--                <td>${material.forespørgsel_id}</td>--%>
-<%--                <td>${material.materiale_id}</td>--%>
-<%--                <td>${material.navn}</td>--%>
-<%--                <td>${material.beskrivelse}</td>--%>
-<%--                <td>${material.længde}</td>--%>
-<%--                <td>${material.antal}</td>--%>
-<%--                <td>${material.enhed}</td>--%>
-<%--            </tr>--%>
-<%--        </c:forEach>--%>
             <c:forEach var="material"  items="${sessionScope.billOfMaterials}">
                 <tr>
                     <td>${material.id}</td>
@@ -39,8 +28,8 @@
                     <td>${material.price}</td>
                 </tr>
             </c:forEach>
-
         </table>
+
         <table class="table table-striped">
             <thead>
             <tr>
@@ -55,7 +44,6 @@
         <button class="btn btn-primary" type="submit" value="Godkendt" name="Godkend">Godkend</button>
         <button class="btn btn-primary" type="submit" value="Afvist" name="Afvis">Afvis</button>
         </form>
-
 
     </jsp:body>
 </t:genericpage>

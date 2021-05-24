@@ -16,7 +16,6 @@ public class Database
         String deployed = System.getenv("DEPLOYED");
         if (deployed != null)
         {
-            // Prod: hent variabler fra setenv.sh i Tomcats bin folder
             USER = System.getenv("JDBC_USER");
             PASSWORD = System.getenv("JDBC_PASSWORD");
             URL = System.getenv("JDBC_CONNECTION_STRING");

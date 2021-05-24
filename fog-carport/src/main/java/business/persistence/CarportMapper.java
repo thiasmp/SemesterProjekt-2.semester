@@ -5,8 +5,6 @@ import business.entities.Request;
 import business.entities.RequestConfirm;
 import business.entities.Stykliste;
 import business.exceptions.UserException;
-import com.google.protobuf.RepeatedFieldBuilder;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -65,38 +63,6 @@ public class CarportMapper {
         }
     }
 
-    public List<Stykliste> getMaterialListFromRequestID(int id) throws UserException {
-
-        ArrayList<Stykliste> materialList = new ArrayList<>();
-
-        try (Connection connection = database.connect()) {
-            String sql = "SELECT forespørgsel_id, materiale_id, navn, beskrivelse, længde, antal, enhed.enhed " +
-                    "FROM orderline INNER JOIN materiale ON orderline.materiale_id = materiale.id " +
-                    "INNER JOIN enhed ON materiale.enhed = enhed.id WHERE forespørgsel_id = ?;";
-
-            try (PreparedStatement ps = connection.prepareStatement(sql)) {
-                ps.setInt(1, id);
-                ResultSet rs = ps.executeQuery();
-                while (rs.next()) {
-                    int requestID = rs.getInt("forespørgsel_id");
-                    int materialeID = rs.getInt("materiale_id");
-                    String name = rs.getString("navn");
-                    String description = rs.getString("beskrivelse");
-                    int length = rs.getInt("længde");
-                    int amount = rs.getInt("antal");
-                    String unit = rs.getString("enhed.enhed");
-                    materialList.add(new Stykliste(requestID, materialeID, name, description, length, amount, unit));
-                }
-                return materialList;
-            } catch (SQLException ex) {
-                throw new UserException(ex.getMessage());
-            }
-        } catch (SQLException | UserException ex) {
-            throw new UserException(ex.getMessage());
-        }
-
-    }
-
     public int getLengthFromDB(int id) throws UserException {
         try (Connection connection = database.connect()) {
             String sql = "SELECT længde FROM forespørgsel WHERE id = ?";
@@ -115,7 +81,6 @@ public class CarportMapper {
         } catch (SQLException | UserException ex) {
             throw new UserException(ex.getMessage());
         }
-
         return 0;
     }
 
@@ -137,7 +102,6 @@ public class CarportMapper {
         } catch (SQLException | UserException ex) {
             throw new UserException(ex.getMessage());
         }
-
         return 0;
     }
 

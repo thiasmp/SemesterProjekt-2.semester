@@ -10,9 +10,7 @@
     <jsp:body>
         <h1>Velkommen ${sessionScope.email} </h1>
         Du er logget ind som administrator og kan redigere følgende
-
         <br/>
         <p>Klik her for at se alle <a href="${pageContext.request.contextPath}/fc/allrequestspage">forespørgseler</a>
-
     </jsp:body>
 </t:genericpage>

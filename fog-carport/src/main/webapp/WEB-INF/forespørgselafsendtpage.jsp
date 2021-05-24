@@ -7,7 +7,6 @@
     </jsp:attribute>
     <jsp:attribute name="footer">
     </jsp:attribute>
-
     <jsp:body>
         <h2>Vi har modtaget din forespørgsel med disse mål:</h2>
         <br/>
@@ -17,6 +16,4 @@
             <br/>
         <h3>Din forespørgsel vil blive behandlet hurtigst muligt - du vil blive kontaktet ved opdateringer</h3>
     </jsp:body>
-
 </t:genericpage>
-

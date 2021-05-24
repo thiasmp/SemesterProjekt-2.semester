@@ -38,7 +38,7 @@ class CarportMapperTest {
 
     @BeforeEach
     public void setUp() {
-        
+
         // reset test database
         try ( Statement stmt = database.connect().createStatement() ) {
 
