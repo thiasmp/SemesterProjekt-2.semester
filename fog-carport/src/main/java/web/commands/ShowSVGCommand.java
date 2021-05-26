@@ -41,8 +41,6 @@ public class ShowSVGCommand extends CommandProtectedPage {
 
             double price = materialList.get(0).getPrice();
             session.setAttribute("price", price);
-            session.setAttribute("length", length);
-            session.setAttribute("width", width);
 
             SVG svg = new SVG(0, 0, "0 0 1000 800", 100, 50);
             //tilføjer spær

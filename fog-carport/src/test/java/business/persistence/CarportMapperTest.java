@@ -1,15 +1,11 @@
 package business.persistence;
 
-import business.entities.CarportItem;
 import business.exceptions.UserException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -39,7 +35,6 @@ class CarportMapperTest {
     @BeforeEach
     public void setUp() {
 
-        // reset test database
         try ( Statement stmt = database.connect().createStatement() ) {
 
             stmt.execute("drop table if exists users" );
